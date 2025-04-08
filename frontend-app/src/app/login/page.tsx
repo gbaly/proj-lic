@@ -35,25 +35,27 @@ export default function LoginPage() {
 
     try {
       const response = await signIn(credentials);
-      console.log('Login Response:', response); // Log the response for now
+      console.log('Login Response (data object):', response);
 
-      // --- Token Handling Placeholder ---
-      // TODO: Determine how the token is returned (response.token?, headers?, cookies?)
-      // TODO: Store the token securely (e.g., localStorage, context, state management)
-      const token = response?.token; // Example: Adjust based on actual response
+      // --- Updated Token Handling --- 
+      // Get token from accessToken property
+      const token = response?.accessToken; 
 
-      if (token) {
-        console.log("Login successful, token found (placeholder):", token);
-        // Store the token (example using localStorage - consider security implications)
-        // localStorage.setItem('authToken', token);
+      if (token && typeof token === 'string') { // Check if token exists and is a string
+        console.log("Login successful, token found:", token);
+        // Store the token in localStorage
+        localStorage.setItem('authToken', token); 
 
-        // Redirect to a protected page (e.g., dashboard)
-        router.push('/'); // Redirect to home page for now
+        // Set auth state in sidebar (might need a better global state solution later)
+        // This won't automatically update the sidebar in this render, but on next load/navigation
+
+        // Redirect to a protected page (e.g., dashboard or home)
+        router.push('/'); // Redirect to home page
       } else {
-         console.warn("Login successful, but no token found in response data.");
-         setError("تم تسجيل الدخول بنجاح، لكن إعدادات التوكن تحتاج إلى مراجعة.");
+         console.warn("Login successful, but accessToken not found or invalid in response data.", response);
+         setError("تم تسجيل الدخول بنجاح، لكن لم يتم العثور على التوكن."); // Updated error message
       }
-      // --- End Token Handling Placeholder ---
+      // --- End Updated Token Handling ---
 
     } catch (err) {
       console.error('Login failed:', err);
