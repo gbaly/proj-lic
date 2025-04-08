@@ -1,0 +1,739 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Institution",
+    "version": "v1.0"
+  },
+  "paths": {
+    "/api/institution/dashboard/stats": {
+      "get": {
+        "tags": [
+          "Dashboard"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Dashboard.DashboardStatsDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Dashboard.DashboardStatsDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Dashboard.DashboardStatsDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/institution/licenses": {
+      "post": {
+        "tags": [
+          "Licenses"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Requests.Institution.LicenseRequests.CreateLicensesRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Requests.Institution.LicenseRequests.CreateLicensesRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Requests.Institution.LicenseRequests.CreateLicensesRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "Licenses"
+        ],
+        "parameters": [
+          {
+            "name": "ProductId",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          },
+          {
+            "name": "SearchValue",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "Type",
+            "in": "query",
+            "schema": {
+              "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Enums.LicenseType"
+            }
+          },
+          {
+            "name": "IsRevoked",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IsAssigned",
+            "in": "query",
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "IssuedStartAt",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "IssuedEndAt",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "format": "date-time"
+            }
+          },
+          {
+            "name": "CurrentPage",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          },
+          {
+            "name": "PageSize",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.LicenseDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.LicenseDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.LicenseDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/institution/licenses/{id}/revok": {
+      "put": {
+        "tags": [
+          "Licenses"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/institution/products/{id}": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Requests.Institution.ProductRequests.UpdateProductRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Requests.Institution.ProductRequests.UpdateProductRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Requests.Institution.ProductRequests.UpdateProductRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Products"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "format": "uuid"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/institution/products": {
+      "get": {
+        "tags": [
+          "Products"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Products"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Requests.Institution.ProductRequests.CreateProductRequest"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Requests.Institution.ProductRequests.CreateProductRequest"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Requests.Institution.ProductRequests.CreateProductRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Almakhtuta.Licenses.Manager.Api.Response.ApiResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.LicenseDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.LicenseDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]], Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Dashboard.DashboardStatsDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.DTOs.Dashboard.DashboardStatsDto"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Api.Response.ApiResponse`1[[System.Guid, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]": {
+        "type": "object",
+        "properties": {
+          "data": {
+            "type": "string",
+            "format": "uuid",
+            "readOnly": true
+          },
+          "message": {
+            "type": "string",
+            "nullable": true,
+            "readOnly": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.LicenseDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "currentPage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.LicenseDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Shared.Abstractions.Queries.Paged`1[[Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto, Almakhtuta.Licenses.Manager.Shared, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]": {
+        "type": "object",
+        "properties": {
+          "currentPage": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "pageSize": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalResults": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalPages": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Shared.DTOs.Dashboard.DashboardStatsDto": {
+        "type": "object",
+        "properties": {
+          "totalCustomers": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "totalLicenses": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "assignedLicenses": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "unassignedLicenses": {
+            "type": "integer",
+            "format": "int32",
+            "readOnly": true
+          },
+          "revokedLicenses": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.LicenseDto": {
+        "type": "object",
+        "properties": {
+          "licenseId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "licenseKey": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Enums.LicenseType"
+          },
+          "typeCaption": {
+            "type": "string",
+            "nullable": true
+          },
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "issuedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "isRevoked": {
+            "type": "boolean"
+          },
+          "isAssigned": {
+            "type": "boolean"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Shared.DTOs.Institution.ProductDto": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Shared.Enums.LicenseType": {
+        "enum": [
+          1,
+          2,
+          3
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Almakhtuta.Licenses.Manager.Shared.Requests.Institution.LicenseRequests.CreateLicensesRequest": {
+        "type": "object",
+        "properties": {
+          "type": {
+            "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Enums.LicenseType"
+          },
+          "size": {
+            "$ref": "#/components/schemas/Almakhtuta.Licenses.Manager.Shared.Requests.Institution.LicenseRequests.LicenseBatchSize"
+          },
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Shared.Requests.Institution.LicenseRequests.LicenseBatchSize": {
+        "enum": [
+          5,
+          10,
+          30
+        ],
+        "type": "integer",
+        "format": "int32"
+      },
+      "Almakhtuta.Licenses.Manager.Shared.Requests.Institution.ProductRequests.CreateProductRequest": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Almakhtuta.Licenses.Manager.Shared.Requests.Institution.ProductRequests.UpdateProductRequest": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {
+      "Bearer": {
+        "type": "apiKey",
+        "description": "JWT Authorization header using the Bearer scheme. \r\n\r\n Enter 'Bearer' [space] and then your token in the text input below.\r\n\r\nExample: \"Bearer eyJhbGciOiJodHRwOi\"",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
+}
